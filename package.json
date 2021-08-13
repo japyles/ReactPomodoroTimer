@@ -11,6 +11,7 @@
     "react-scripts": "^1.1.5"
   },
   "scripts": {
+    "prebuild": "CI=true react-scripts test --color",
     "build": "react-scripts build",
     "docker:build": "docker image build . -t thinkful-ed/zid-fe-project-pomodoro-timer-01-qualified",
     "docker:run": "docker run --rm -it -p 3000:3000 thinkful-ed/zid-fe-project-pomodoro-timer-01-qualified",
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "start:solution": "npm run -it docker:build && npm run docker:run",
     "test": "react-scripts test",
-    "test:solution": "npm run docker:build && npm run docker:test"
+    "test:solution": "npm run docker:build && npm run docker:test",
+    "predeploy": "npm run build",
+    "deploy": "vercel --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
