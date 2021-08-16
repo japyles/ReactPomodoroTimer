@@ -38,7 +38,7 @@ npm run test
 
 ## Technology
 ### Built With:
-. React, including Router 
+* React, including Router 
 
 ## Show your support
 
