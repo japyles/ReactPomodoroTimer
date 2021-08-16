@@ -36,6 +36,10 @@ npm run test
 * Github: [@japyles](https://github.com/japyles)
 * LinkedIn: [@john-pyles](https://linkedin.com/in/john-pyles)
 
+## Technology
+### Built With:
+. React, including Router 
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
