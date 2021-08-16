@@ -8,7 +8,7 @@
 
 > A timer for time management. Allows you to split your time in increments between focusing and taking a break.
 
-![Alt text](/assests/PomodoroTimerScreenShot.png?raw=true)
+![Alt text](/src/assests/PomodoroTimerScreenShot.png?raw=true)
 
 ## Install
 
