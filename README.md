@@ -8,6 +8,8 @@
 
 > A timer for time management. Allows you to split your time in increments between focusing and taking a break.
 
+![Alt text](/src/assests/PomodoroTimerScreenShot.png?raw=true)
+
 ## Install
 
 ```sh
@@ -34,9 +36,12 @@ npm run test
 * Github: [@japyles](https://github.com/japyles)
 * LinkedIn: [@john-pyles](https://linkedin.com/in/john-pyles)
 
+## Technology
+### Built With:
+* React, including Router 
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
