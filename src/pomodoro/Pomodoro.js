@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import classNames from "../utils/class-names";
-import useInterval from "../utils/useInterval";
-import {minutesToDuration, secondsToDuration} from '../utils/duration';
+import React, { useState } from 'react';
+import classNames from '../utils/class-names';
+import useInterval from '../utils/useInterval';
+import { minutesToDuration, secondsToDuration } from '../utils/duration';
 import SessionFocus from '../SessionFocus';
 import SessionBreak from '../SessionBreak';
 
@@ -16,7 +16,7 @@ import SessionBreak from '../SessionBreak';
  *  new session state with timing information updated.
  */
 function nextTick(prevState = {}) {
-  if (!prevState) return; 
+  if (!prevState) return;
   const timeRemaining = Math.max(0, prevState.timeRemaining - 1);
   return {
     ...prevState,
@@ -38,30 +38,30 @@ function nextSession(focusDuration, breakDuration) {
    * State function to transition the current session type to the next session. e.g. On Break -> Focusing or Focusing -> On Break
    */
   return (currentSession) => {
-    if (currentSession.label === "Focusing") {
+    if (currentSession.label === 'Focusing') {
       return {
-        label: "On Break",
+        label: 'On Break',
         timeRemaining: breakDuration * 60,
       };
     }
     return {
-      label: "Focusing",
+      label: 'Focusing',
       timeRemaining: focusDuration * 60,
     };
   };
 }
 
 function Pomodoro() {
- 
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [session, setSession] = useState(null);
 
   const [focusDuration, setFocusDuration] = useState(25);
   const [breakDuration, setBreakDuration] = useState(5);
 
-  useInterval(() => {
+  useInterval(
+    () => {
       if (session && session.timeRemaining === 0) {
-        new Audio("https://bigsoundbank.com/UPLOAD/mp3/1482.mp3").play();
+        new Audio('https://bigsoundbank.com/UPLOAD/mp3/1482.mp3').play();
         return setSession(nextSession(focusDuration, breakDuration));
       }
       return setSession(nextTick);
@@ -79,7 +79,7 @@ function Pomodoro() {
         setSession((prevStateSession) => {
           if (prevStateSession === null) {
             return {
-              label: "Focusing",
+              label: 'Focusing',
               timeRemaining: focusDuration * 60,
             };
           }
@@ -91,56 +91,53 @@ function Pomodoro() {
   }
 
   return (
-    <div className="pomodoro">
-      <div className="row">
-        
-      <SessionFocus 
+    <div className='pomodoro'>
+      <div className='row'>
+        <SessionFocus
           focusDuration={focusDuration}
           setFocusDuration={setFocusDuration}
         />
 
-        <SessionBreak 
+        <SessionBreak
           breakDuration={breakDuration}
-          setBreakDuration={setBreakDuration}  
+          setBreakDuration={setBreakDuration}
         />
-        
       </div>
-      <div className="row">
-        <div className="col">
+      <div className='row'>
+        <div className='col'>
           <div
-            className="btn-group btn-group-lg mb-2"
-            role="group"
-            aria-label="Timer controls"
+            className='btn-group btn-group-lg mb-2'
+            role='group'
+            aria-label='Timer controls'
           >
             <button
-              type="button"
-              className="btn btn-primary"
-              data-testid="play-pause"
-              title="Start or pause timer"
+              type='button'
+              className='btn btn-primary'
+              data-testid='play-pause'
+              title='Start or pause timer'
               onClick={playPause}
             >
               <span
                 className={classNames({
                   oi: true,
-                  "oi-media-play": !isTimerRunning,
-                  "oi-media-pause": isTimerRunning,
+                  'oi-media-play': !isTimerRunning,
+                  'oi-media-pause': isTimerRunning,
                 })}
               />
             </button>
 
             <button
-              type="button"
-              className="btn btn-secondary"
-              data-testid="stop"
+              type='button'
+              className='btn btn-secondary'
+              data-testid='stop'
               disabled={session == null}
               onClick={() => {
-                setSession(null)
-                setIsTimerRunning(false)
+                setSession(null);
+                setIsTimerRunning(false);
               }}
-              title="Stop the session"
-                       
+              title='Stop the session'
             >
-              <span className="oi oi-media-stop" />
+              <span className='oi oi-media-stop' />
             </button>
           </div>
         </div>
@@ -149,37 +146,54 @@ function Pomodoro() {
         {/* TODO: This area should show only when there is an active focus or break - i.e. the session is running or is paused */}
         {session && (
           <div>
-        <div className="row mb-2">
-          <div className="col">
-            {/* TODO: Update message below to include current session (Focusing or On Break) total duration */}
-            <h2 data-testid="session-title">
-              {session.label} for {session.label === 'Focusing' ? minutesToDuration(focusDuration) : minutesToDuration(breakDuration)} minutes
-            </h2>
-            {/* TODO: Update message below correctly format the time remaining in the current session */}
-            <p className="lead" data-testid="session-sub-title">
-              {secondsToDuration(session.timeRemaining)} remaining
-            </p>
-          </div>
-        </div>
-        <div className="row mb-2">
-          <div className="col">
-            <div className="progress" style={{ height: "20px" }}>
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow={session.label === 'Focusing' ? ((1-(session.timeRemaining/(focusDuration * 60)))*100) : ((1-(session.timeRemaining/(breakDuration * 60)))*100)} // TODO: Increase aria-valuenow as elapsed time increases
-                style={{ width: session.label === 'Focusing' ? ((1-(session.timeRemaining/(focusDuration * 60)))*100)+"%" : ((1-(session.timeRemaining/(breakDuration * 60)))*100)+"%" }} // TODO: Increase width % as elapsed time increases
-              />
+            <div className='row mb-2'>
+              <div className='col'>
+                {/* TODO: Update message below to include current session (Focusing or On Break) total duration */}
+                <h2 data-testid='session-title'>
+                  {session.label} for{' '}
+                  {session.label === 'Focusing'
+                    ? minutesToDuration(focusDuration)
+                    : minutesToDuration(breakDuration)}{' '}
+                  minutes
+                </h2>
+                {/* TODO: Update message below correctly format the time remaining in the current session */}
+                <p className='lead' data-testid='session-sub-title'>
+                  {secondsToDuration(session.timeRemaining)} remaining
+                </p>
+              </div>
+            </div>
+            <div className='row mb-2'>
+              <div className='col'>
+                <div className='progress' style={{ height: '20px' }}>
+                  <div
+                    className='progress-bar'
+                    role='progressbar'
+                    aria-valuemin='0'
+                    aria-valuemax='100'
+                    aria-valuenow={
+                      session.label === 'Focusing'
+                        ? (1 - session.timeRemaining / (focusDuration * 60)) *
+                          100
+                        : (1 - session.timeRemaining / (breakDuration * 60)) *
+                          100
+                    } // TODO: Increase aria-valuenow as elapsed time increases
+                    style={{
+                      width:
+                        session.label === 'Focusing'
+                          ? (1 - session.timeRemaining / (focusDuration * 60)) *
+                              100 +
+                            '%'
+                          : (1 - session.timeRemaining / (breakDuration * 60)) *
+                              100 +
+                            '%',
+                    }} // TODO: Increase width % as elapsed time increases
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-            </div>
-         )}
-            
+        )}
       </div>
-           
     </div>
   );
 }
