@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Permanent+Marker&display=swap');
+
+.App {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 4.3em;
+  font-family: 'Permanent Marker', cursive;
+  /* color: #008397; */
+  /* padding-left: 379px; */
+}
+
+/* .image {
+  position: relative;
+  background-image: url('../assests/clock.avif');
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+} */
+
+.App::before {
+  content: "";
+  background-image: url('../assets/clock4.avif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  /* height: 100vh;
+  width: 100vw; */
+  overflow: hidden;
+  opacity: 0.3;
+}

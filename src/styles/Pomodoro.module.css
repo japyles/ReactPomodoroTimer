@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Permanent+Marker&display=swap');
+
+.items {
+    display: flex;
+    justify-content: center;
+    align-items: space-around;
+    margin-top: 200px;
+}
+
+.focus {
+    /* border: 2px solid #ccc; */
+    padding: 10px;
+    width: 500px;
+}
+
+.break {
+    /* border: 2px solid #ccc; */
+    padding: 10px;
+    width: 500px;
+}
+
+.timer {
+    /* color: #971400; */
+    color: #000;
+    font-family: 'Merriweather', 'Helvetica Neue';
+    letter-spacing: 0.2em;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    padding-top: 43px;
+}
+
+.play {
+    padding: 43px 14px 0 0;
+}
+
+.stop {
+    padding: 43px 0 0 14px;
+}
+
+.remaining {
+    padding: 16px 0 16px 0;
+    color: #971400;
+    font-size: 0.9em;
+}

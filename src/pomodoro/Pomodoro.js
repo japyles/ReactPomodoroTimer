@@ -4,6 +4,7 @@ import useInterval from '../utils/useInterval';
 import { minutesToDuration, secondsToDuration } from '../utils/duration';
 import SessionFocus from '../SessionFocus';
 import SessionBreak from '../SessionBreak';
+import '../styles/Pomodoro.module.css';
 
 // These functions are defined outside of the component to insure they do not have access to state
 // and are, therefore more likely to be pure.
@@ -92,64 +93,29 @@ function Pomodoro() {
 
   return (
     <div className='pomodoro'>
-      <div className='row'>
-        <SessionFocus
-          focusDuration={focusDuration}
-          setFocusDuration={setFocusDuration}
-        />
-
-        <SessionBreak
-          breakDuration={breakDuration}
-          setBreakDuration={setBreakDuration}
-        />
-      </div>
-      <div className='row'>
-        <div className='col'>
-          <div
-            className='btn-group btn-group-lg mb-2'
-            role='group'
-            aria-label='Timer controls'
-          >
-            <button
-              type='button'
-              className='btn btn-primary'
-              data-testid='play-pause'
-              title='Start or pause timer'
-              onClick={playPause}
-            >
-              <span
-                className={classNames({
-                  oi: true,
-                  'oi-media-play': !isTimerRunning,
-                  'oi-media-pause': isTimerRunning,
-                })}
-              />
-            </button>
-
-            <button
-              type='button'
-              className='btn btn-secondary'
-              data-testid='stop'
-              disabled={session == null}
-              onClick={() => {
-                setSession(null);
-                setIsTimerRunning(false);
-              }}
-              title='Stop the session'
-            >
-              <span className='oi oi-media-stop' />
-            </button>
-          </div>
+      <div className='items'>
+        <div className='focus'>
+          <SessionFocus
+            focusDuration={focusDuration}
+            setFocusDuration={setFocusDuration}
+          />
+        </div>
+        <div className='break'>
+          <SessionBreak
+            breakDuration={breakDuration}
+            setBreakDuration={setBreakDuration}
+          />
         </div>
       </div>
+
       <div>
         {/* TODO: This area should show only when there is an active focus or break - i.e. the session is running or is paused */}
         {session && (
           <div>
-            <div className='row mb-2'>
+            <div className='timer'>
               <div className='col'>
                 {/* TODO: Update message below to include current session (Focusing or On Break) total duration */}
-                <h2 data-testid='session-title'>
+                <h2 data-testid='session-title' className='session'>
                   {session.label} for{' '}
                   {session.label === 'Focusing'
                     ? minutesToDuration(focusDuration)
@@ -157,13 +123,13 @@ function Pomodoro() {
                   minutes
                 </h2>
                 {/* TODO: Update message below correctly format the time remaining in the current session */}
-                <p className='lead' data-testid='session-sub-title'>
+                <p className='lead remaining' data-testid='session-sub-title'>
                   {secondsToDuration(session.timeRemaining)} remaining
                 </p>
               </div>
             </div>
-            <div className='row mb-2'>
-              <div className='col'>
+            <div>
+              <div>
                 <div className='progress' style={{ height: '20px' }}>
                   <div
                     className='progress-bar'
@@ -193,6 +159,56 @@ function Pomodoro() {
             </div>
           </div>
         )}
+      </div>
+      <div>
+        <div>
+          <div
+            className='btn-group btn-group-lg mb-2'
+            role='group'
+            aria-label='Timer controls'
+          >
+            <button
+              type='button'
+              data-testid='play-pause'
+              title='Start or pause timer'
+              onClick={playPause}
+            >
+              <div className='play'>
+                {!isTimerRunning ? (
+                  <i class='bx bx-play-circle bx-md'></i>
+                ) : (
+                  // <box-icon type='regular' name='play-circle'></box-icon>
+                  <i class='bx bx-pause-circle bx-md'></i>
+                  // <box-icon type='regular' name='pause-circle'></box-icon>
+                )}
+              </div>
+
+              {/* <span
+                className={classNames({
+                  oi: true,
+                  'oi-media-play': !isTimerRunning,
+                  'oi-media-pause': isTimerRunning,
+                })}
+              /> */}
+            </button>
+
+            <button
+              className='stop'
+              type='button'
+              data-testid='stop'
+              disabled={session == null}
+              onClick={() => {
+                setSession(null);
+                setIsTimerRunning(false);
+              }}
+              title='Stop the session'
+            >
+              <i class='bx bx-stop-circle bx-md'></i>
+              {/* <box-icon type='regular' name='stop-circle'></box-icon> */}
+              {/* <span className='oi oi-media-stop' /> */}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

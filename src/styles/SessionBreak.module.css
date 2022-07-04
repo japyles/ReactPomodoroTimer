@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Permanent+Marker&display=swap');
+
+.break-group {
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    font-size: 1.4em;
+    font-family: 'Merriweather', 'Helvetica Neue';
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    /* color: #971400; */
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.break-button {
+    display: block;
+    padding: 25px;
+}
+
+.minus {
+    padding-right: 14px;
+}
+
+.plus {
+    padding-left: 14px;
+}
