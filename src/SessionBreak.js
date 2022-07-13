@@ -8,7 +8,7 @@ function SessionBreak({ breakDuration, setBreakDuration }) {
       <div>
         <div>
           <div className='input-group input-group-lg break-group'>
-            <span data-testid='duration-break'>
+            <span data-testid='duration-break' className='break'>
               Break Duration: {minutesToDuration(breakDuration)}
             </span>
             <div className='input-group-append break-button'>

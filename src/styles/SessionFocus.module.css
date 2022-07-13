@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Permanent+Marker&display=swap');
 
+ /* Extra small devices (phones, 600px and down) */
 .focus-group {
-    display: flex;
-    flex-direction: column;
+    display: block;
     padding: 0 14px;
     font-size: 1.2em;
     font-family: 'Merriweather', 'Helvetica Neue';
     text-transform: uppercase;
     letter-spacing: 0.3em;
+}
+
+.focus {
+    font-size: 1.1em;
 }
 
 button {
@@ -29,9 +33,25 @@ button {
 }
 
  /* Small devices (portrait tablets and large phones, 600px and up) */
- @media only screen and (min-width: 600px) {
+   @media only screen and (min-width: 600px) {
     .focus-group {
-      font-size: 1.4em;
+        font-size: 1.4em;
+        padding-left: 65px;
     }
     
    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+
+}
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+    .focus-group {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.6em;
+        padding-left: 92px;
+    }
+ }

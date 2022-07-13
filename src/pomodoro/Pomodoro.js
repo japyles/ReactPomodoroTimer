@@ -217,13 +217,13 @@ function Pomodoro() {
 
       <div style={{ display: session ? 'none' : 'flex' }}>
         <div className='items'>
-          <div className='focus'>
+          <div className='focus-placeholder'>
             <SessionFocus
               focusDuration={focusDuration}
               setFocusDuration={setFocusDuration}
             />
           </div>
-          <div className='break'>
+          <div className='break-placeholder'>
             <SessionBreak
               breakDuration={breakDuration}
               setBreakDuration={setBreakDuration}

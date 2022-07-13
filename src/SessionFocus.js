@@ -7,7 +7,7 @@ function SessionFocus({ focusDuration, setFocusDuration }) {
     <div>
       <div>
         <div className='input-group input-group-lg focus-group'>
-          <span data-testid='duration-focus'>
+          <span data-testid='duration-focus' className='focus'>
             Focus Duration: {minutesToDuration(focusDuration)}
           </span>
           <div className='input-group-append focus-button'>
