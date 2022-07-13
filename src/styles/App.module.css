@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Permanent+Marker&display=swap');
 
+ /* Extra small devices (phones, 600px and down) */
+ /* @media only screen and (max-width: 600px) {...} */
 .App {
   position: relative;
   height: 100vh;
@@ -12,21 +14,9 @@
 }
 
 .title {
-  font-size: 4.3em;
+  font-size: 2.5em;
   font-family: 'Permanent Marker', cursive;
-  /* color: #008397; */
-  /* padding-left: 379px; */
 }
-
-/* .image {
-  position: relative;
-  background-image: url('../assests/clock.avif');
-  background-repeat: no-repeat;
-  opacity: 0.6;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-} */
 
 .App::before {
   content: "";
@@ -39,8 +29,86 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  /* height: 100vh;
-  width: 100vw; */
   overflow: hidden;
   opacity: 0.3;
 }
+
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+  .title {
+    font-size: 4.5em;
+    font-family: 'Permanent Marker', cursive;
+  }
+  
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ /* @media only screen and (min-width: 768px) {...} */
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+  .title {
+    font-size: 4.5em;
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  .App {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+ }
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+  .App {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  .title {
+    font-size: 4.3em;
+    font-family: 'Permanent Marker', cursive;
+    /* color: #008397; */
+    /* padding-left: 379px; */
+  }
+  
+  /* .image {
+    position: relative;
+    background-image: url('../assests/clock.avif');
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+  } */
+  
+  .App::before {
+    content: "";
+    background-image: url('../assets/clock4.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    /* height: 100vh;
+    width: 100vw; */
+    overflow: hidden;
+    opacity: 0.3;
+  }
+ } 

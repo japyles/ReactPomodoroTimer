@@ -3,12 +3,11 @@
 .focus-group {
     display: flex;
     flex-direction: column;
-    padding: 14px;
-    font-size: 1.4em;
+    padding: 0 14px;
+    font-size: 1.2em;
     font-family: 'Merriweather', 'Helvetica Neue';
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    /* color: #971400; */
 }
 
 button {
@@ -28,3 +27,11 @@ button {
 .plus {
     padding-left: 14px;
 }
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+    .focus-group {
+      font-size: 1.4em;
+    }
+    
+   }

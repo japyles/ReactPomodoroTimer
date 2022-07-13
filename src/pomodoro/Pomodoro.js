@@ -93,7 +93,7 @@ function Pomodoro() {
 
   return (
     <div className='pomodoro'>
-      <div className='items'>
+      {/* <div className='items'>
         <div className='focus'>
           <SessionFocus
             focusDuration={focusDuration}
@@ -106,7 +106,7 @@ function Pomodoro() {
             setBreakDuration={setBreakDuration}
           />
         </div>
-      </div>
+      </div> */}
 
       <div>
         {/* TODO: This area should show only when there is an active focus or break - i.e. the session is running or is paused */}
@@ -115,7 +115,11 @@ function Pomodoro() {
             <div className='timer'>
               <div className='col'>
                 {/* TODO: Update message below to include current session (Focusing or On Break) total duration */}
-                <h2 data-testid='session-title' className='session'>
+                <h2
+                  data-testid='session-title'
+                  className='session'
+                  style={{ fontSize: '0.6em' }}
+                >
                   {session.label} for{' '}
                   {session.label === 'Focusing'
                     ? minutesToDuration(focusDuration)
@@ -207,6 +211,23 @@ function Pomodoro() {
               {/* <box-icon type='regular' name='stop-circle'></box-icon> */}
               {/* <span className='oi oi-media-stop' /> */}
             </button>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ display: session ? 'none' : 'flex' }}>
+        <div className='items'>
+          <div className='focus'>
+            <SessionFocus
+              focusDuration={focusDuration}
+              setFocusDuration={setFocusDuration}
+            />
+          </div>
+          <div className='break'>
+            <SessionBreak
+              breakDuration={breakDuration}
+              setBreakDuration={setBreakDuration}
+            />
           </div>
         </div>
       </div>
