@@ -42,7 +42,7 @@ npm run test
 
 ## Technology
 ### Built With:
-* React, including Router 
+* JavaScript, React, HTML, CSS
 
 ## Show your support
 
