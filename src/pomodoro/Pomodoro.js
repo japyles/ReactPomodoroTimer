@@ -45,6 +45,7 @@ function nextSession(focusDuration, breakDuration) {
         timeRemaining: breakDuration * 60,
       };
     }
+
     return {
       label: 'Focusing',
       timeRemaining: focusDuration * 60,
