@@ -19,7 +19,7 @@ function SessionFocus({ focusDuration, setFocusDuration }) {
                 setFocusDuration((time) => (time > 5 ? time - 5 : time))
               }
             >
-              <i class='bx bx-minus-circle bx-md'></i>
+              <i className='bx bx-minus-circle bx-md'></i>
               {/* <box-icon type='regular' name='minus-circle'></box-icon> */}
               {/* <span className='oi oi-minus' /> */}
             </button>
@@ -31,7 +31,7 @@ function SessionFocus({ focusDuration, setFocusDuration }) {
                 setFocusDuration((time) => (time < 60 ? time + 5 : time))
               }
             >
-              <i class='bx bx-plus-circle bx-md'></i>
+              <i className='bx bx-plus-circle bx-md'></i>
               {/* <box-icon type='regular' name='plus-circle' size='lg'></box-icon> */}
               {/* <span className='oi oi-plus' /> */}
             </button>
