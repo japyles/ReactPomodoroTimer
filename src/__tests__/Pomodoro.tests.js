@@ -1,10 +1,14 @@
-// import React from "react";
-// import Pomodoro from "../pomodoro/Pomodoro";
-// import { act, render } from "@testing-library/react";
-// import "@testing-library/jest-dom";
-// import userEvent from "@testing-library/user-event";
+/**
+ * @jest-environment jsdom
+ */
 
-// describe("Pomodoro Timer", () => {
+import React from "react";
+import Pomodoro from "../pomodoro/Pomodoro";
+import { act, render } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
+
+describe("Pomodoro Timer", () => {
 //   beforeEach(() => {
 //     // Playing audio is not supported in jsdom
 //     window.HTMLMediaElement.prototype.load = jest.fn();
@@ -12,6 +16,24 @@
 //     window.HTMLMediaElement.prototype.pause = jest.fn();
 //     jest.useFakeTimers();
 //   });
+
+describe("play button", () => {
+    test("jibberish brah", async () => {
+      const { getByTestId } = render(<Pomodoro />);
+
+      const playPauseButton = getByTestId("play-pause");
+
+    //   expect(playPauseButton.title).toEqual('Start or pause timer');
+
+    //   expect(playPauseButton.firstChild).toHaveClass("oi-media-play");
+      expect(playPauseButton).not.toHaveClass('jibberish');
+
+    //   userEvent.click(playPauseButton);
+
+    //   expect(playPauseButton.firstChild).not.toHaveClass("oi-media-play");
+    //   expect(playPauseButton.firstChild).toHaveClass("oi-media-pause");
+    });
+  });
 
 //   describe("play button", () => {
 //     test("changes to pause button when clicked", async () => {
@@ -447,4 +469,4 @@
 //       expect(valueNow).toBeLessThan(21);
 //     });
 //   });
-// });
+});

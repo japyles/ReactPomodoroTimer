@@ -180,10 +180,10 @@ function Pomodoro() {
             >
               <div className='play'>
                 {!isTimerRunning ? (
-                  <i class='bx bx-play-circle bx-md'></i>
+                  <i className='bx bx-play-circle bx-md'></i>
                 ) : (
                   // <box-icon type='regular' name='play-circle'></box-icon>
-                  <i class='bx bx-pause-circle bx-md'></i>
+                  <i className='bx bx-pause-circle bx-md'></i>
                   // <box-icon type='regular' name='pause-circle'></box-icon>
                 )}
               </div>
@@ -208,7 +208,7 @@ function Pomodoro() {
               }}
               title='Stop the session'
             >
-              <i class='bx bx-stop-circle bx-md'></i>
+              <i className='bx bx-stop-circle bx-md'></i>
               {/* <box-icon type='regular' name='stop-circle'></box-icon> */}
               {/* <span className='oi oi-media-stop' /> */}
             </button>
