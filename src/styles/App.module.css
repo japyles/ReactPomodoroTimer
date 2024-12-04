@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Permanent+Marker&display=swap');
 
- /* Extra small devices (phones, 600px and down) */
+/* Extra small devices (phones, 600px and down) */
 .App {
   position: relative;
   height: 100vh;
@@ -10,6 +10,7 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
+  padding-top: 45px;
 }
 
 .title {
@@ -18,7 +19,7 @@
 }
 
 .App::before {
-  content: "";
+  content: '';
   background-image: url('../assets/clock4.avif');
   background-repeat: no-repeat;
   background-position: center;
@@ -32,23 +33,20 @@
   opacity: 0.3;
 }
 
-
- /* Small devices (portrait tablets and large phones, 600px and up) */
- @media only screen and (min-width: 600px) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
   .title {
     font-size: 4.5em;
     font-family: 'Permanent Marker', cursive;
   }
-  
- }
- 
- /* Medium devices (landscape tablets, 768px and up) */
- @media only screen and (min-width: 768px) {
-  
- }
- 
- /* Large devices (laptops/desktops, 992px and up) */
- @media only screen and (min-width: 992px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
   .title {
     font-size: 4.5em;
     font-family: 'Permanent Marker', cursive;
@@ -64,13 +62,12 @@
     text-align: center;
     flex-direction: column;
   }
- }
- 
- /* Extra large devices (large laptops and desktops, 1200px and up) */
- @media only screen and (min-width: 1200px) {
-  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
   .title {
     font-size: 5.3em;
     font-family: 'Permanent Marker', cursive;
   }
- } 
+}
